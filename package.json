@@ -1,10 +1,10 @@
 {
-  "name": "nodejs_oauth2_client",
-  "description": "An oAuth2 services client",
-  "author": "Angel Sanchez <angel.sanchez@intelygenz.com>",
+  "name": "reso-web-api-client",
+  "description": "Sample client for the RESO web API",
+  "author": "Fred Larsen <fred@utahrealestate.com>",
   "repository": {
     "type": "git",
-    "url": "http://github.com/IGZangelsanchez/nodejs_oauth2.git"
+    "url": "https://github.com/UtahRealEstate/reso-web-api-client"
   },
   "dependencies": {
     "express": "3.3.5",
