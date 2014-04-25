@@ -1,12 +1,20 @@
-<% if (!user) { %>
-	<h2>Welcome!</h2>
-<% } else { %>
-	<h2>Hello, <%= user.name %>.</h2>
-	<h3>AppExample Services:</h3>
-	<ul>
-		<li><a href="/userinfo">userinfo</a></li>
-		<li><a href="/personaldata">personaldata</a></li>
-		<li><a href="/refresh_token">refresh_token</a></li>
-        <li><a href="/listings">Listings</a></li>
-	</ul>
-<% } %>
+<div class="inner cover">
+    <% if (!user) { %>
+        <h2>Welcome!</h2>
+    <% } else { %>
+        <h1 class="cover-heading">Hello, <%= user.name %></h1>
+        <p class="lead">
+            <a href="/userinfo" class="btn btn-lg btn-default" style="width: 200px;">User Info</a><br/>
+        </p>
+        <p class="lead">
+            <a href="/personaldata" class="btn btn-lg btn-default" style="width: 200px;">Personal Data</a><br/>
+        </p>
+        <p class="lead">
+            <a href="/refresh_token" class="btn btn-lg btn-default" style="width: 200px;">Refresh Token</a><br/>
+        </p>
+        <p class="lead">
+            <a href="/listings" class="btn btn-lg btn-default" style="width: 200px;">Listings</a>
+        </p>
+
+    <% } %>
+</div>
