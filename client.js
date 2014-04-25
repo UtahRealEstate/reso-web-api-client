@@ -106,7 +106,7 @@ app.get('/login', function(req, res){
 //   redirecting the user to appexample.com.  After authorization, appexample
 //   will redirect the user back to this application at /auth/appexample/callback
 app.get('/auth/appexample',
-    passport.authenticate('appexample', { scope: 'personaldata' }),
+    passport.authenticate('appexample', { scope: 'Listings' }),
     function(req, res){
         console.log("Authorizating...")
     });
@@ -126,6 +126,7 @@ app.get('/auth/appexample/callback',
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
+    //res.send();
 });
 
 // Simple route middleware to ensure user is authenticated.
@@ -155,9 +156,10 @@ app.get('/personaldata', ensureAuthenticated, function (req, res) {
 app.get('/listings', ensureAuthenticated, function (req, res) {
 
     //utils.getProtectedResource('/RESO/OData/DataSystems/Resources?$format=json', req.user.accessToken, function (err, data) {
-    utils.getProtectedResource('/RESO/OData/Property/Properties?$filter=(ListAgentMlsId%20eq%2021595)', req.user.accessToken, function (err, data) {
+    utils.getProtectedResource('/RESO/OData/Property/Properties?$filter=(ListAgentMlsId%20eq%2021595)&$select=ListingId,ListPrice', req.user.accessToken, function (err, data) {
         if (err) { return new Error('failed to fetch user full info: ' + err.message); }
-        res.send(data);
+        var data = JSON.parse(data);
+        res.render('listings', { user: req.user, listings:  data.d.results});
     })
 });
 
