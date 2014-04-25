@@ -1,0 +1,7 @@
+<div class="inner cover">
+    <h1 class="cover-heading">Listings</h1>
+
+    <% for(var i=0; i<listings.length; i++) {%>
+    <p class="lead"><%= listings[i].ListingId %> $<%= listings[i].ListPrice %><img src="http://photo.wfrmls.com/640x480/<%= listings[i].ListingId %>.jpg"></p>
+    <% } %>
+</div>
